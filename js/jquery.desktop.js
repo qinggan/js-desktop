@@ -693,27 +693,7 @@
 		}
 	};
 	$.win = function(title,url,opts){
-		//检查是否窗口已存在
-		var open_id = false;
-		$("ul#phpok-taskbar li").each(function(i){
-			var txt = $(this).text();
-			if(txt == title){
-				open_id = $(this).attr('id');
-			}
-		});
-		if(open_id){
-			$("#"+open_id).click();
-			return false;
-		}
 		var max = $('body').width() - 770;
-		var this_max = 90;
-		$("ul.head_tab li").each(function(i){
-			this_max += parseInt($(this).outerWidth(true));
-		});
-		if(max <= this_max){
-			$.dialog.alert('您弹出的窗口太多了，请先关闭几个没有用的窗口');
-			return false;
-		}
 		var height = parseInt(($(window).height() - 45) * 0.8);
 		var exwidth = $('.c_left').parent().width();
 		if(!exwidth || exwidth == 'null' || exwidth == null){
